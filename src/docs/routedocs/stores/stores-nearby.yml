@@ -1,0 +1,50 @@
+/stores/nearby:
+  get:
+    summary: return a list of stores in a given radius of a given postcode in the UK
+    description: The list must be ordered from north to south
+    tags: [Store]
+    parameters:
+      - in: query
+        name: postcode
+        schema:
+          type: string
+        description: postcode referes to an item
+        required: true
+        example:
+          name: AL1 2RJ
+      - in: query
+        name: radius
+        schema:
+          type: string
+        description: radius is in meters
+        required: true
+        example:
+          radius: '1500'
+    responses:
+      '200':
+        description: custom codes used are 1000, 1002, 1058
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  code: 1000
+                  data:
+                    - postcode: CM2 6XN
+                      latitude: 51.735019
+                      longitude: 0.496366
+                    - name: Chelmsford
+                      postcode: CM2 6XJ
+                      latitude: 51.734824
+                      longitude: 0.497108
+                    - postcode: CM2 6XL
+                      latitude: 51.734451
+                      longitude: 0.49687
+              validation_fail:
+                value:
+                  code: 1002
+                  reason: 'validation failed'
+              invalid:
+                value:
+                  code: 1059
+                  reason: 'invalid postcode'

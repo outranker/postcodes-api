@@ -1,0 +1,15 @@
+node_modules
+bin
+src/controllers/signup/signup.controller.js
+src/controllers/mobileotp/mobileotp.controller.js
+src/controllers/verifications/findprofile.controller.js
+src/features/generateReferralCode.js
+src/features/deleteImage.js
+src/features/uploadImage.js
+
+dist
+dist/*
+public
+BOILERPLATE_DOC
+yarn.lock
+yarn-error.log

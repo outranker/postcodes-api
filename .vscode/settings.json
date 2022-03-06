@@ -1,0 +1,34 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "explorer.decorations.colors": true,
+  "problems.decorations.enabled": true,
+  "typescript.validate.enable": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": false,
+  "typescript.suggest.includeCompletionsForImportStatements": false,
+  "workbench.colorCustomizations": {
+    // "list.errorBackground": "#00AA00"
+    // "list.errorForeground": "#FF0000",
+    // "list.warningForeground": "#FF0000"
+  },
+  "typescript.suggest.paths": false,
+  "files.exclude": {
+    // default
+    "**/.git": true,
+    // project specific
+
+    "**/dist": false,
+    "**/node_modules": true,
+
+    "**/.eslintignore": true,
+    "**/.eslintrc": true,
+
+    "**/.gitignore": true,
+
+    "**/.prettierignore": true,
+    "**/.prettierrc.json": true,
+
+    "**/tasks.json": false,
+    "**/yarn-error.log": true,
+    "**/yarn.lock": true
+  }
+}

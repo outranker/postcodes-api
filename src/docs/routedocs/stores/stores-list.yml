@@ -1,0 +1,21 @@
+/stores/list:
+  get:
+    summary: get the list of stores in stores.json
+    description: returns an array of all stores
+    tags: [Store]
+    responses:
+      '200':
+        description: custom codes used are 1000
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  code: 1000
+                  data:
+                    - name: St_Albans"
+                      postcode: AL1 2RJ
+                    - name: Hatfield"
+                      postcode: AL9 5JP
+                    - name: Worthing"
+                      postcode: BN14 9GB
