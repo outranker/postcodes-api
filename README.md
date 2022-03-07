@@ -18,6 +18,7 @@
 1. [Intial setup](#initial-setup)
 2. [Project structure](#project-structure)
 3. [Documentation](#documentation)
+4. [Docker and Docker Compose](#docker)
 
 ---
 
@@ -83,7 +84,7 @@ The project uses famous <b>MVC</b> pattern. Routes dir define all existing endpo
 
 ## Documentation[![](./docs/img/pin.svg)](#documentation)
 
-The api serves Swagger UI as a documentation for the endpoints. Just run the project and head over to [docs](https://postcodes-api.javohirmirzo.com/v1/docs/) route.
+The api serves Swagger UI as a documentation for the endpoints. Just run the project locally and head over to [docs](https://postcodes-api.javohirmirzo.com/v1/docs/) route.
 
 > 💡 All existing routes in the project is in `v1` path. Be sure to include it in url path to head over to existing route.
 
@@ -98,3 +99,16 @@ or
 ```
 curl --location --request GET 'http://0.0.0.0:3005/v1/docs
 ```
+
+---
+
+## Docker and Docker Compose[![](./docs/img/pin.svg)](#docker)
+
+### Docker
+
+For ease of use, Dockerfile is provided. Since developers use different OS for development there might arise problems with platform compatibility.
+Feel free to modify and build your own image using the Dockerfile
+
+### Docker Compose
+
+In order to quickly get going with the api without any extra hassle, use docker compose to quickly run the app locally in no time

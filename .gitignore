@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# yarn error logs
+yarn-error.log
+
+# Environment varibales
+*.env
+
+
+# Code coverage
+coverage
+
+# cron scheduler
+src/config/cronjob
+
+# build
+build
+build/*
+
+# upload
+Upload
+dist/
+dist/*
+logs/
