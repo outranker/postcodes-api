@@ -1,0 +1,56 @@
+components:
+  schemas:
+    NotAuthenticated:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+        stack:
+          type: string
+      example:
+        code: 401
+        message: 'ApiError: Please authenticate'
+        stack: 'at /Users/mac/Desktop/path/postcodes-api/src/middlewares/auth.js:7:19'
+
+    InternalServerError:
+      type: object
+      properties:
+        code:
+          type: number
+        data:
+          type: string
+        stack:
+          type: string
+      example:
+        code: 1001
+        data: fail
+        stack: 'at /Users/mac/Desktop/path/postcodes-api/src/middlewares/auth.js:7:19'
+    GeneralCustomError:
+      type: object
+      properties:
+        code:
+          type: number
+        data:
+          type: string
+      example:
+        code: 1001
+        data: fail
+
+    GeneralValidationError:
+      type: object
+      properties:
+        code:
+          type: number
+        data:
+          type: string
+      example:
+        code: 1002
+        data: 'validation error'
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

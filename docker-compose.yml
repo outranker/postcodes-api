@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postcodes:
+    image: outranker/postcodes-api:1.0
+    restart: unless-stopped
+    ports:
+      - 3005:3005
+    environment:
+      - NODE_ENV=development
+      - DOCKER_BUILD=true
+volumes:
+  data:

@@ -1,0 +1,34 @@
+/stores:
+  get:
+    summary: get the specific item of stores in stores.json
+    description: requires store name as query param and returns a document if found
+    tags: [Store]
+    parameters:
+      - in: query
+        name: name
+        schema:
+          type: string
+        description: a name of the store
+        required: true
+        example:
+          name: Eastbourne
+    responses:
+      '200':
+        description: custom codes used are 1000, 1002, 1057
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  code: 1000
+                  data:
+                    name: 'Eastbourne'
+                    postcode: 'BN23 6QD'
+              validation_fail:
+                value:
+                  code: 1002
+                  reason: 'validation failed'
+              not_found:
+                value:
+                  code: 1057
+                  reason: 'store not found'

@@ -1,0 +1,32 @@
+/stores/coordinates:
+  get:
+    summary: get the latitude and longitude for each postcode
+    description: postcodes.io api is used to get the latitude and longitudefor each postcode
+    tags: [Store]
+    parameters:
+      - in: query
+        name: postcode
+        schema:
+          type: string
+        description: postcode referes to an item
+        required: false
+        example:
+          postcode: AL9 5JP
+    responses:
+      '200':
+        description: custom codes used are 1000, 1005
+        content:
+          application/json:
+            examples:
+              success:
+                value:
+                  code: 1000
+                  data:
+                    name: Orpington
+                    postcode: BR5 3RP
+                    latitude: 51.392983
+                    longitude: 0.112496
+              not_found:
+                value:
+                  code: 1057
+                  reason: 'store not found'
