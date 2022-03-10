@@ -6,7 +6,6 @@ import cors from 'cors';
 import passport from 'passport';
 import jwtStrategy from './config/passport';
 import config from './config/config';
-import stores from './config/load-stores';
 import authLimiter from './middlewares/rateLimiter';
 import routes from './routes/v1';
 import Errors from './middlewares/error';
@@ -28,14 +27,11 @@ app.use(pinoExpress);
 app.use(helmet());
 
 // parse json request body
-// app.use(express.json());
 app.use(express.json());
 
 // serving static files
 app.use(express.static('public'));
 
-// parse urlencoded request body
-// app.use(express.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: false }));
 
 // sanitize request data
@@ -46,9 +42,6 @@ app.use(compression());
 
 // enable cors
 app.use(cors());
-
-// TS throwing errors, probably this isn't the way to use
-// app.options(cors());
 
 // jwt authentication
 app.use(passport.initialize());
@@ -65,12 +58,12 @@ app.get('/', (req, res) => {
 });
 
 // v1 api routes
+// all the routes live in the ./routes directory
+// this directory is the entry point for all the endpoints
 app.use('/v1', routes);
 
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
-  // next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
-
   res.sendStatus(404);
 });
 
@@ -81,7 +74,3 @@ app.use(Errors.errorConverter);
 app.use(Errors.errorHandler);
 
 export default app;
-
-// export function listen(port: any, arg1: () => void): any {
-//   throw new Error('Function not implemented.');
-// }

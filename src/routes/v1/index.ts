@@ -1,6 +1,7 @@
 import express from 'express';
 import docsRoute from './docs.route';
 
+// importing all the defined routes related to stores from stores
 import storesRoute from './stores/stores.route';
 import config from '../../config/config';
 

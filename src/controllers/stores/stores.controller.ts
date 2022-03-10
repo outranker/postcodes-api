@@ -34,6 +34,7 @@ class StoresController {
       })
     );
   }
+
   async getStoreCoordinates(req: Request<{}, { postcode: string }, {}>, res: Response) {
     const { postcode } = req.query;
     if (postcode) {
@@ -104,6 +105,11 @@ class StoresController {
       };
     });
 
+    /**
+     *
+     * to sort stores from north to south
+     * sort latitude in descending order
+     */
     return res.status(200).json(
       responseForm.send({
         code: 1000,
